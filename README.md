@@ -9,7 +9,7 @@ None of that "filesystem data goes in a boot sector" crap, the entire thing shou
 
 ### Locations
 
-Data type     | Location (hex)
+Data          | Location (hex)
 ------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+Volume Label  | 
+              | Content Cell
