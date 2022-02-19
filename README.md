@@ -17,19 +17,20 @@ None of that "filesystem data goes in a boot sector" crap, the entire thing shou
 
 Data          | Location (hex) | Data Type/Size |
 ------------- | -------------- | -------------- |
-Terminating Char | `0x0001`    | 1 byte char    |
 Volume Label  |    `0x0004`    | 10 byte char   |
 Filenames     |    `0x000F`    | 1024 byte char array of 8.3 filenames |
-File Loc.     |    `0x040F`    | 372 byte int array of 32 bit ints, half this if in Real Mode. |
-File Size     |    `0x0583`    | 372 byte int array of 32 bit ints, half this if in Real Mode. |
+File Loc.     |    `0x040F`    | 1024 byte int array of 32 bit ints, half this if in Real Mode. |
+File Size     |    `0x0583`    | 1024 byte int array of 32 bit ints, half this if in Real Mode. |
 Other         |Any remaining room| Any kind of data can go here, this is room for un-added features. |
 Data          | `0x1000` onward | Data for files. |
 
 ## Details
-### Terminating Character
+
 ### Volume Label
 ### Filename Array
+
 ### File Location Array
+An array of 256 file pointers, to the start of a file, 
 ### File Size Array
 ### Other/Unimplemented
 
