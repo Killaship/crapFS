@@ -12,4 +12,7 @@ None of that "filesystem data goes in a boot sector" crap, the entire thing shou
 Data          | Location (hex)
 ------------- | -------------
 Volume Label  | 
-              | Content Cell
+File Names    | 
+Terminating Char |
+File Loc. |
+File Size |
