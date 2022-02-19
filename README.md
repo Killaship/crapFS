@@ -11,7 +11,7 @@ An attempt at a filesystem, or at least the specs, to be implemented in OSes.
 Specs start below.
 
 # FS Specs
-None of that "filesystem data goes in a boot sector" crap, the entire thing should just be a binary "blob" you load. The first 0 sectors, or 4096 bytes, of the FS contain everything, with the volume label, file names, sizes, and location. (With location being represented as an offset from where the FS was loaded.)
+None of that "filesystem data goes in a boot sector" crap, the entire thing should just be a binary "blob" you load. The first 8 sectors, or 4096 bytes, of the FS contain everything, with the volume label, file names, sizes, and location. (With location being represented as an offset from where the FS was loaded.)
 
 ## Locations and data type
 
@@ -23,7 +23,7 @@ Filenames     |    `0x000F`    | 1024 byte char array of 8.3 filenames |
 File Loc.     |    `0x040F`    | 372 byte int array of 32 bit ints, half this if in Real Mode. |
 File Size     |    `0x0583`    | 372 byte int array of 32 bit ints, half this if in Real Mode. |
 Other         |Any remaining room| Any kind of data can go here, this is room for un-added features. |
-
+Data          | `0x1000` onward | Data for files. |
 
 ## Details
 ### Terminating Character
