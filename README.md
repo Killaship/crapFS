@@ -11,12 +11,12 @@ An attempt at a filesystem, or at least the specs, to be implemented in OSes.
 Specs start below.
 
 # FS Specs
-in progress
+in progress.
+For now, see examples/crapfs.h for some documentation.
 # the below is obsolete as I'm putting everything in structs instead of at offsets.
 The structs would be a "header" to each file and there would be a magic number aligned to a certain amount of bytes, to tell where each file is.
 The filesystem, for now, is also read-only, as I don't wanna mess around with fragmentation or any of that. The filenames will be 8.3 instead of 4 chars. (yay)
 
-For now, see examples/crapfs.h for some documentation.
 
 ## Locations and data type
 
