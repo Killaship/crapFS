@@ -28,7 +28,7 @@ Data          | `0x1000` onward | Data for files. |
 ### Volume Label
 This is an array of 10 characters, including a null character, so in reality, it's more like 9.
 ### Filename Array
-Due to crappy design choices, the filenames are only 4 characters long, including a null char, and without any extensions. This means there can be 26^4 filenames, but only 256 files are supported in one filesystem. (Crappy design at work! Don't you just love the waste?)
+Due to crappy design choices, the filenames are only 4 characters long, including a null char, and without any extensions. This means there can be 26^3 filenames, but only 256 files are supported in one filesystem. (Crappy design at work! Don't you just love the waste?)
 ### File Location Array
 An array of 256 file pointers, to the start of a file, but it can be 512 pointers if you are in real mode, where you'd use 16 bit locations. You could also use this for calculating the size of files, by finding the difference between one pointer and the next, but preferably, the implementation of the FS on its own would include this in the file size array.
 ### File Size Array
