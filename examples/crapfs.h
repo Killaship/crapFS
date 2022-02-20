@@ -5,6 +5,12 @@ struct filedata {
   int null; // if null is marked as one, then this will be treated as the end of the filesystem
   long* fileloc; // pointer to file location
   long filesize; // file size, implementation must round to nearest 512 bytes or memes might occur
-  short perms; // file permissions, see documentation "mega-comment" lower down
+  char perms; // file permissions, see documentation "mega-comment" lower down
 }
   
+/*
+File permissions are stored in an 8 bit char, in the header of the file. The system this uses takes some inspiration from standard UNIX permissions.
+The first 4 bits are for what the owner or root user can do, and the last 4 bits are for what everyone else can do.
+Each nibble (4 bits) goes rwx
+*/
+
