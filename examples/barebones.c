@@ -34,7 +34,7 @@ void listfiles() {
             //printf(crapfile[i].filesize);
             //printf(crapfile[i].fileloc);
         }
-        else {continue;}
+        else {break;}
 
          
     }
