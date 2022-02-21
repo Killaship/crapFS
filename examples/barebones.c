@@ -1,5 +1,6 @@
 #include "crapfs.h" // Include the crapFS structs and data.
 #define my_sizeof(type) (char *)(&type+1)-(char*)(&type)
+#include <stdlib.h>
 
 struct crapFS crapfile[256]; // Initialize the filesystem to 256 files. (Including the blank one marking the end of the filesystem.)
 void initcrapfs() {
@@ -12,7 +13,7 @@ crapfile->exists = 0;
 
 
 void createfile(const char name, const char content, const int entry) {
-    crapfile[entry].filename = name; // Set the name of the file.
+    strcpy(crapfile[entry].filename, name); // Set the name of the file.
     crapfile[entry].exists = 1; // Declare that this file exists.
     crapfile[entry].fileloc = (malloc(my_sizeof(content)));
     crapfile[entry].filesize = my_sizeof(content);
