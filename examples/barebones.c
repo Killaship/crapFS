@@ -16,7 +16,7 @@ crapfile->exists = 0;
 }
 
 
-void createfile(const char name, const char content, const int entry) {
+void createfile(const char* name, const char* content, const int entry) {
     strcpy(crapfile[entry].filename, name); // Set the name of the file.
     crapfile[entry].exists = 1; // Declare that this file exists.
     crapfile[entry].fileloc = (malloc(my_sizeof(content)));
