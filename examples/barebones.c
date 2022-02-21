@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 // Note: remove the 2 later when porting to a freestanding OS.
 
 
@@ -25,9 +26,22 @@ void createfile(const char* name, const char* content, const int entry) {
     // where the malloc'd file will be converted into some space on the disk.    
 }
 
+void listfiles() {
+    int i = 0;
+    while(crapfile[i].null = 0;) {
+        if(crapfile[i].exists !=0) {
+            printf(crapfile[i].filename);
+            printf(crapfile[i].filesize);
+            printf(crapfile[i].fileloc);
+        }
+        else {continue;}
 
+         
+    }
+}
 int main(void) {
     initcrapfs();
     createfile("test.txt", "hello world", 1);
+    listfiles();
     return 0;
 }
