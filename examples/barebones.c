@@ -45,7 +45,7 @@ int main(void) {
     initcrapfs();
     createfile("test.txt", "hello world", 0);
     createfile("guide.hlp", "insert guide to filesystem here", 1);
-    createfile("AAAAAAAAAAAAAAAAAAAAAAAAA","overflow time", 2)
+    createfile("AAAAAAAAAAAAAAAAAAAAAAAAA","overflow time", 2);
     listfiles();
 
     return 0;
