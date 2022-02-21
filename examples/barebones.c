@@ -17,9 +17,9 @@ crapfile->exists = 0;
 
 
 void createfile(const char* name, const char* content, const int entry) {
-    strcpy(crapfile[entry].filename, name); // Set the name of the file.
+    strcpy(crapfile[entry].filename, *name); // Set the name of the file.
     crapfile[entry].exists = 1; // Declare that this file exists.
-    crapfile[entry].fileloc = (malloc(my_sizeof(content)));
+    crapfile[entry].fileloc = (malloc(my_sizeof(*content)));
     crapfile[entry].filesize = my_sizeof(content);
     // Use malloc, as the files should be in memory until you somehow flush the FS to a disk,
     // where the malloc'd file will be converted into some space on the disk.    
