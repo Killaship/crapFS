@@ -28,7 +28,7 @@ void createfile(const char* name, const char* content, const int entry) {
 
 void listfiles() {
     int i = 0;
-    while((crapfile[i].null) = 0) {
+    while((crapfile[i].null) == 0) {
         if((crapfile[i].exists) != 0) {
             printf(crapfile[i].filename);
             printf((const char*)crapfile[i].filesize);
