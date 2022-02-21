@@ -7,7 +7,7 @@ struct filedata {
   long* fileloc; // pointer to file location
   long filesize; // file size, implementation must round to nearest 512 bytes or memes might occur
   char perms; // file permissions, see documentation "mega-comment" lower down
-} 
+} filedata;
   
 /*
 File permissions are stored in an 8 bit char, in the header of the file. The system this uses takes some inspiration from standard UNIX permissions.
