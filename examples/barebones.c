@@ -1,6 +1,10 @@
 #include "crapfs.h" // Include the crapFS structs and data.
 #define my_sizeof(type) (char *)(&type+1)-(char*)(&type)
+
 #include <stdlib.h>
+#include <string.h>
+// Note: remove the 2 later when porting to a freestanding OS.
+
 
 struct crapFS crapfile[256]; // Initialize the filesystem to 256 files. (Including the blank one marking the end of the filesystem.)
 void initcrapfs() {
