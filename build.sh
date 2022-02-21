@@ -1,2 +1,2 @@
-gcc -Wall -Wextra -m32 -ffreestanding -c examples/barebones.c -o crapFS-demo.elf
+gcc -Wall -Wextra  -c examples/barebones.c -o crapFS-demo.elf # -m32 -ffreestanding
 ./crapFS-demo.elf
