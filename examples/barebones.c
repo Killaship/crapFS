@@ -36,7 +36,7 @@ void listfiles() {
             //printf(crapfile[i].fileloc);
             i++;
         }
-        else {continue;}
+        else {break;}
 
          
     }
@@ -47,6 +47,7 @@ int main(void) {
     createfile("test.txt", "hello world", 0);
     createfile("guide.hlp", "insert guide to filesystem here", 1);
     createfile("hello.wld", "I've lost ideas for what to put in these files.", 2);
+    createfile("test.zzz", "testing what happens if you skip entries", 5);
     listfiles();
     printf("\n");
     return 0;
