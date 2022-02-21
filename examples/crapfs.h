@@ -1,13 +1,14 @@
 #define VOL_LABEL "CRAPFS  "
 #include <stdbool.h>
-typedef struct {
+
+struct crapFS {
   char filename[12]; // 8.3 filename including null char
   int null; // if null is marked as one, then this will be treated as the end of the filesystem
   bool exists;
   long* fileloc; // pointer to file location
   long filesize; // file size, implementation must round to nearest 512 bytes or memes might occur
   char perms; // file permissions, see documentation "mega-comment" lower down
-} filedata;
+} 
   
 /*
 File permissions are stored in an 8 bit char, in the header of the file. The system this uses takes some inspiration from standard UNIX permissions.
