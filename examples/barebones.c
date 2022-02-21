@@ -41,14 +41,14 @@ void listfiles() {
     }
 }
 int main(void) {
-    printf("Initializing filesystem...");
+    printf("Initializing filesystem...\n");
     initcrapfs();
-    printf("Filesystem intialized.");
-    printf("Creating test.txt file at FS entry 0 with content of \"hello world\".");
-    createfile("test.txt", "hello world", 0);
-    printf("test.txt file created.");
-    printf("Listing files...");
+    printf("Filesystem intialized.\n");
+    printf("Creating test.txt file at FS entry 0 with content of \"hello world\".\n");
+    createfile("test.txt", "hello world\n", 0);
+    printf("test.txt file created.\n");
+    printf("Listing files...\n\n");
     listfiles();
-    printf("Files listed.");
+    printf("\n\nFiles listed.\n");
     return 0;
 }
