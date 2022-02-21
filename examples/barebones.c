@@ -36,7 +36,7 @@ void listfiles() {
             //printf(crapfile[i].fileloc);
             i++;
         }
-        else {break;}
+        else {i++;}
 
          
     }
