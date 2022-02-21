@@ -7,7 +7,7 @@ void afunction() {
 
 crapfile[255].null = 1; // This sets the end of the filesystem at the 256th file.
 
-crapfile.exists = {false}; 
+crapfile.exists = {0}; 
 // This will set all of the "exist" fields in the files to 0, to not mark 
 // as the end of the filesystem, but rather a file that's deleted or absent. 
 }
