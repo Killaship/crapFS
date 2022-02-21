@@ -1,5 +1,7 @@
 #include "crapfs.h" // Include the crapFS structs and data.
 
+;
+
 struct filedata crapfile[256]; // Initialize the filesystem to 256 files. (Including the blank one marking the end of the filesystem.)
 
 crapfile[255].null = 1; // This sets the end of the filesystem at the 256th file.
