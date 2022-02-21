@@ -11,4 +11,4 @@ crapfile->exists = 0;
 // as the end of the filesystem, but rather a file that's deleted or absent. 
 }
 
-afunction();
+
