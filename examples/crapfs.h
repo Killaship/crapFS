@@ -1,6 +1,6 @@
 #define VOL_LABEL "CRAPFS  "
 #include <stdbool.h>
-struct filedata {
+typedef struct {
   char filename[12]; // 8.3 filename including null char
   int null; // if null is marked as one, then this will be treated as the end of the filesystem
   bool exists;
