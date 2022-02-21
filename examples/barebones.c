@@ -33,6 +33,7 @@ void listfiles() {
             printf(crapfile[i].filename);
             //printf(crapfile[i].filesize);
             //printf(crapfile[i].fileloc);
+            i++;
         }
         else {break;}
 
