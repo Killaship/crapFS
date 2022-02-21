@@ -29,4 +29,5 @@ void createfile(const char name, const char content, const int entry) {
 int main(void) {
     initcrapfs();
     createfile("test.txt", "hello world", 1);
+    return 0;
 }
