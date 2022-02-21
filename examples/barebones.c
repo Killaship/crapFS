@@ -26,6 +26,10 @@ void createfile(const char* name, const char* content, const int entry) {
     // where the malloc'd file will be converted into some space on the disk.    
 }
 
+void deletefile() {
+    
+}
+
 void listfiles() {
     int i = 0;
     while((crapfile[i].null) == 0) {
