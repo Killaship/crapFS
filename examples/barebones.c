@@ -33,13 +33,13 @@ void createfile(const char* name, const char* content) {
 }
 
 void deletefile() {
-    
+    // TODO: Delete files.
 }
 
 void listfiles() {
     int i = 0;
-    while((crapfile[i].null) == 0) {
-        if((crapfile[i].exists) != 0) {
+    while((crapfile[i].null) == 0) { // Poor man's for loop here.
+        if((crapfile[i].exists) != 0) { // Loop through all the FS entries checking if they exist, and if so, print the filename and size/addr.
             printf(crapfile[i].filename);
             printf(" ");
             printf("%i", crapfile[i].filesize);
@@ -61,6 +61,8 @@ int main(void) {
     createfile("guide.hlp", "insert guide to filesystem here");
     createfile("hello.wld", "I've lost ideas for what to put in these files.");
     printf((void*)crapfile[0].fileloc);
+    printf((void*)crapfile[1].fileloc);
+    printf((void*)crapfile[2].fileloc);
     listfiles();
     printf("\n");
     return 0;
