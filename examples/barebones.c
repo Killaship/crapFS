@@ -8,6 +8,8 @@
 
 
 struct crapFS crapfile[256]; // Initialize the filesystem to 256 files. (Including the blank one marking the end of the filesystem.)
+int entry = 0; // Current file entry. This is where the next new file will be put. 
+// It's expected that the FS will be defragmented to avoid memes resulting from the entry counter going too high.
 void initcrapfs() {
 crapfile->null = 0; // Null should already be zeroed out, but let's just do this to be safe.
 crapfile[255].null = 1; // This sets the end of the filesystem at the 256th file.
@@ -16,14 +18,18 @@ crapfile->exists = 0;
 // as the end of the filesystem, but rather a file that's deleted or absent. 
 }
 
+void defrag_entries() {
+    // TODO: defragment file entries
+}
 
-void createfile(const char* name, const char* content, const int entry) {
+void createfile(const char* name, const char* content) {
     strcpy(crapfile[entry].filename, name); // Set the name of the file.
     crapfile[entry].exists = 1; // Declare that this file exists.
     crapfile[entry].fileloc = (malloc(my_sizeof(content)));
     crapfile[entry].filesize = my_sizeof(content);
     // Use malloc, as the files should be in memory until you somehow flush the FS to a disk,
-    // where the malloc'd file will be converted into some space on the disk.    
+    // where the malloc'd file will be converted into some space on the disk.  
+    entry++; // Increment entry counter.
 }
 
 void deletefile() {
@@ -36,7 +42,7 @@ void listfiles() {
         if((crapfile[i].exists) != 0) {
             printf(crapfile[i].filename);
             printf(" ");
-            //printf(crapfile[i].filesize);
+            printf(crapfile[i].filesize);
             //printf(crapfile[i].fileloc);
             i++;
         }
