@@ -42,8 +42,8 @@ void listfiles() {
         if((crapfile[i].exists) != 0) {
             printf(crapfile[i].filename);
             printf(" ");
-            printf("%i", crapfile[i].filesize, " ");
-            printf("%i", crapfile[i].fileloc, " ");
+            printf(%i, crapfile[i].filesize, " ");
+            printf(%i, crapfile[i].fileloc, " ");
             i++;
         }
         else {i++;}
