@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-// Note: remove the 2 later when porting to a freestanding OS.
+// Note: remove the above later when porting to a freestanding OS.
 
 
 struct crapFS crapfile[256]; // Initialize the filesystem to 256 files. (Including the blank one marking the end of the filesystem.)
@@ -46,7 +46,7 @@ void listfiles() {
             printf("  ");
             printf("%p", crapfile[i].fileloc);
             printf("  ");
-            char *n=(char)crapfile[entry].fileloc;
+            char *n=crapfile[entry].fileloc;
             for(i=0;n[i];i++) {
                 printf(n[i]);
             }
