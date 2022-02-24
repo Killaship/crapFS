@@ -45,6 +45,8 @@ void listfiles() {
             printf("%i", crapfile[i].filesize);
             printf("  ");
             printf("%p", crapfile[i].fileloc);
+            printf("  ");
+            printf((char*)crapfile[i].fileloc);
             printf("  \n");
             i++;
             
