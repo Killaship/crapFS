@@ -21,7 +21,7 @@ void defrag_entries() {
     // TODO: defragment file entries
 }
 
-void createfile(const char* name, const char* content) {
+void createfile(const char* name, const char* content[]) {
     strcpy(crapfile[entry].filename, name); // Set the name of the file.
     crapfile[entry].exists = 1; // Declare that this file exists.
     crapfile[entry].fileloc = (long*)(malloc(sizeof(content)));
