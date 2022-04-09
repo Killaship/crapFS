@@ -21,10 +21,10 @@ void defrag_entries() {
     // TODO: defragment file entries
 }
 
-void createfile(const char* name, const char* content[]) {
+void createfile(const char* name, const char* content) {
     strcpy(crapfile[entry].filename, name); // Set the name of the file.
     crapfile[entry].exists = 1; // Declare that this file exists.
-    crapfile[entry].fileloc = (long*)(malloc(sizeof(content)));
+    crapfile[entry].fileloc = (long*)(malloc(sizeof(*content)));
     crapfile[entry].filesize = sizeof(content);
     // Use malloc, as the files should be in memory until you somehow flush the FS to a disk,
     // where the malloc'd file will be converted into some space on the disk.  
