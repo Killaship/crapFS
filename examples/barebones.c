@@ -1,5 +1,4 @@
 #include "crapfs.h" // Include the crapFS structs and data.
-#define my_sizeof(type) (char *)(&type+1)-(char*)(&type)
 
 #include <stdlib.h>
 #include <string.h>
@@ -25,8 +24,8 @@ void defrag_entries() {
 void createfile(const char* name, const char* content) {
     strcpy(crapfile[entry].filename, name); // Set the name of the file.
     crapfile[entry].exists = 1; // Declare that this file exists.
-    crapfile[entry].fileloc = (long*)(malloc(my_sizeof(content)));
-    crapfile[entry].filesize = my_sizeof(content);
+    crapfile[entry].fileloc = (long*)(malloc(sizeof(content)));
+    crapfile[entry].filesize = sizeof(content);
     // Use malloc, as the files should be in memory until you somehow flush the FS to a disk,
     // where the malloc'd file will be converted into some space on the disk.  
     entry++; // Increment entry counter.
