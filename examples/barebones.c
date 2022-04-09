@@ -40,7 +40,7 @@ void readfile(char *file, char *outbuf) {
 	while((crapfile[i].null) == 0) { 
 		if((crapfile[i].exists) != 0) {
 			if(strcmp(crapfile[i].filename, file) == 0) {
-				*outbuf = *file;
+				strcpy(file, outbuf);
 			}
 		}
 		else {i++;}
@@ -74,5 +74,6 @@ int main(void) {
 	printf("\n");
 	char *buff[256];
 	readfile("test.txt", *buff);
+	printf(buff);
 	return 0;
 }
