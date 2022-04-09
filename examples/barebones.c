@@ -39,7 +39,7 @@ void readfile(char *file, char *outbuf) {
 	int i = 0;
 	while((crapfile[i].null) == 0) { 
 		if((crapfile[i].exists) != 0) {
-			if(strcmp(crapfile[i].*filename, *file) == 0) {
+			if(strcmp(crapfile[i].filename, *file) == 0) {
 				strcpy(*outbuf, *file);
 			}
 		}
