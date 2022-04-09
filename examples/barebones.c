@@ -10,11 +10,11 @@ struct crapFS crapfile[256]; // Initialize the filesystem to 256 files. (Includi
 int entry = 0; // Current file entry. This is where the next new file will be put. 
 // It's expected that the FS will be defragmented to avoid memes resulting from the entry counter going too high.
 void initcrapfs() {
-crapfile->null = 0; // Null should already be zeroed out, but let's just do this to be safe.
-crapfile[255].null = 1; // This sets the end of the filesystem at the 256th file.
-crapfile->exists = 0; 
-// This will set all of the "exist" fields in the files to 0, to not mark 
-// as the end of the filesystem, but rather a file that's deleted or absent. 
+	crapfile->null = 0; // Null should already be zeroed out, but let's just do this to be safe.
+	crapfile[255].null = 1; // This sets the end of the filesystem at the 256th file.
+	crapfile->exists = 0; 
+	// This will set all of the "exist" fields in the files to 0, to not mark 
+	// as the end of the filesystem, but rather a file that's deleted or absent. 
 }
 
 void defrag_entries() {
@@ -22,26 +22,34 @@ void defrag_entries() {
 }
 
 void createfile(const char* name, const char* content) {
-		strcpy(crapfile[entry].filename, name); // Set the name of the file.
-		crapfile[entry].exists = 1; // Declare that this file exists.
-		crapfile[entry].fileloc = (long*)(malloc(sizeof((&content)[1] - content)));
-		crapfile[entry].filesize = (&content)[1] - content;
-		// Use malloc, as the files should be in memory until you somehow flush the FS to a disk,
-		// where the malloc'd file will be converted into some space on the disk.  
-		entry++; // Increment entry counter.
+	strcpy(crapfile[entry].filename, name); // Set the name of the file.
+	crapfile[entry].exists = 1; // Declare that this file exists.
+	crapfile[entry].fileloc = (long*)(malloc(sizeof((&content)[1] - content)));
+	crapfile[entry].filesize = (&content)[1] - content;
+	// Use malloc, as the files should be in memory until you somehow flush the FS to a disk,
+	// where the malloc'd file will be converted into some space on the disk.  
+	entry++; // Increment entry counter.
 }
 
 void deletefile() {
 	// TODO: Delete files.
 }
 
-void readfile() {
-	
+void readfile(char *file, char *outbuf) {
+	int i = 0;
+	while((crapfile[i].null) == 0) { 
+		if((crapfile[i].exists) != 0) {
+			if(strcmp(crapfile[i].filename, file) == 0) {
+				while(1);
+			}
+		}
+		else {i++;}
+	}
 }
 
 void listfiles() {
 	int i = 0;
-	while((crapfile[i].null) == 0) { // Poor man's for loop here.
+	while((crapfile[i].null) == 0) { 
 		if((crapfile[i].exists) != 0) { // Loop through all the FS entries checking if they exist, and if so, print the filename and size/addr.
 			printf(crapfile[i].filename);
 			printf(" ");
@@ -54,7 +62,7 @@ void listfiles() {
 			i++;
 		}
 		else {i++;}
-		}
+	}
 }
 int main(void) {
 	printf("\n");
