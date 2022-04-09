@@ -74,6 +74,6 @@ int main(void) {
 	printf("\n");
 	char *buff[256];
 	readfile("test.txt", *buff);
-	printf(buff);
+	printf((char *)buff);
 	return 0;
 }
