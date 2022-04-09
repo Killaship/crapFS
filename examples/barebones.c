@@ -73,6 +73,6 @@ int main(void) {
 	listfiles();
 	printf("\n");
 	char *buff[256];
-	readfile("test.txt", buff);
+	readfile("test.txt", *buff);
 	return 0;
 }
