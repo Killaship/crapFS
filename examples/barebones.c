@@ -18,50 +18,51 @@ crapfile->exists = 0;
 }
 
 void defrag_entries() {
-    // TODO: defragment file entries
+		// TODO: defragment file entries
 }
 
 void createfile(const char* name, const char* content) {
-    strcpy(crapfile[entry].filename, name); // Set the name of the file.
-    crapfile[entry].exists = 1; // Declare that this file exists.
-    crapfile[entry].fileloc = (long*)(malloc(sizeof((&content)[1] - content)));
-    crapfile[entry].filesize = (&content)[1] - content;
-    // Use malloc, as the files should be in memory until you somehow flush the FS to a disk,
-    // where the malloc'd file will be converted into some space on the disk.  
-    entry++; // Increment entry counter.
+		strcpy(crapfile[entry].filename, name); // Set the name of the file.
+		crapfile[entry].exists = 1; // Declare that this file exists.
+		crapfile[entry].fileloc = (long*)(malloc(sizeof((&content)[1] - content)));
+		crapfile[entry].filesize = (&content)[1] - content;
+		// Use malloc, as the files should be in memory until you somehow flush the FS to a disk,
+		// where the malloc'd file will be converted into some space on the disk.  
+		entry++; // Increment entry counter.
 }
 
 void deletefile() {
-    // TODO: Delete files.
+	// TODO: Delete files.
+}
+
+void readfile() {
+	
 }
 
 void listfiles() {
-    int i = 0;
-    while((crapfile[i].null) == 0) { // Poor man's for loop here.
-        if((crapfile[i].exists) != 0) { // Loop through all the FS entries checking if they exist, and if so, print the filename and size/addr.
-            printf(crapfile[i].filename);
-            printf(" ");
-            printf("%i", crapfile[i].filesize);
-            printf("  ");
-            printf("%p", crapfile[i].fileloc);
-            printf("  ");
-            printf("%x", crapfile[entry].fileloc);
-            printf("  \n");
-            i++;
-            
-        }
-        else {i++;}
-
-         
-    }
+	int i = 0;
+	while((crapfile[i].null) == 0) { // Poor man's for loop here.
+		if((crapfile[i].exists) != 0) { // Loop through all the FS entries checking if they exist, and if so, print the filename and size/addr.
+			printf(crapfile[i].filename);
+			printf(" ");
+			printf("%i", crapfile[i].filesize);
+			printf("  ");
+			printf("%p", crapfile[i].fileloc);
+			printf("  ");
+			printf("%x", crapfile[entry].fileloc);
+			printf("  \n");
+			i++;
+		}
+		else {i++;}
+		}
 }
 int main(void) {
-    printf("\n");
-    initcrapfs();
-    createfile("test.txt", "hello world");
-    createfile("guide.hlp", "insert guide to filesystem here");
-    createfile("hello.wld", "I've lost ideas for what to put in these files.");
-    listfiles();
-    printf("\n");
-    return 0;
+	printf("\n");
+	initcrapfs();
+	createfile("test.txt", "hello world");
+	createfile("guide.hlp", "insert guide to filesystem here");
+	createfile("hello.wld", "I've lost ideas for what to put in these files.");
+	listfiles();
+	printf("\n");
+	return 0;
 }
