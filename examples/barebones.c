@@ -62,9 +62,6 @@ int main(void) {
     createfile("test.txt", "hello world");
     createfile("guide.hlp", "insert guide to filesystem here");
     createfile("hello.wld", "I've lost ideas for what to put in these files.");
-    printf((char*)crapfile[0].fileloc);
-    printf((char*)crapfile[1].fileloc);
-    printf((char*)crapfile[2].fileloc);
     listfiles();
     printf("\n");
     return 0;
