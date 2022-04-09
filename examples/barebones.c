@@ -35,12 +35,12 @@ void deletefile() {
 	// TODO: Delete files.
 }
 
-void readfile(char *file, char *outbuf) {
+void readfile(char *file, char **outbuf) {
 	int i = 0;
 	while((crapfile[i].null) == 0) { 
 		if((crapfile[i].exists) != 0) {
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) {
-				memcpy((char *)outbuf, (char *)file, crapfile[i].filesize + 1);
+				memcpy((char *)outbuf, (char *)file, crapfile[i].filesize);
 			}
 		}
 		else {i++;}
