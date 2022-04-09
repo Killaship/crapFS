@@ -72,5 +72,7 @@ int main(void) {
 	createfile("hello.wld", "I've lost ideas for what to put in these files.");
 	listfiles();
 	printf("\n");
+	char *buff[256];
+	readfile("test.txt", buff);
 	return 0;
 }
