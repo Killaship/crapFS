@@ -61,7 +61,7 @@ void listfiles() {
 int main(void) {
 	printf("\n");
 	initcrapfs();
-	createfile("test.txt", "hello world");
+	createfile("test.txt", "hello world\n");
 	createfile("guide.hlp", "insert guide to filesystem here");
 	createfile("hello.wld", "I've lost ideas for what to put in these files.");
 	listfiles();
