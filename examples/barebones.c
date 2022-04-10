@@ -37,11 +37,11 @@ void deletefile() {
 
 void readfile(char *file, char *outbuf) {
 	int i = 0;
-	while((crapfile[i].null) == 0) { 
-		if((crapfile[i].exists) != 0) {
-			if(strcmp(crapfile[i].filename, (char *)file) == 0) {
-				strcpy((char *)outbuf, (char*)crapfile[i].fileloc);
-				break;
+	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
+		if((crapfile[i].exists) != 0) { 
+			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
+				strcpy((char *)outbuf, (char*)crapfile[i].fileloc[0]); // Copy file contents to output buffer.
+				break; // Close loop to avoid memory memeing. :^)
 			}
 		}
 		else {i++;}
