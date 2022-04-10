@@ -33,7 +33,7 @@ void readfile(char *file, char outbuf) {
 	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
 		if((crapfile[i].exists) != 0) { 
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
-				strcpy(outbuf, *crapfile[i].fileloc); // Copy file contents to output buffer.
+				strcpy(outbuf,(char *) crapfile[i].fileloc); // Copy file contents to output buffer.
 				break; // Close loop to avoid memory memeing. :^)
 			}
 		}
