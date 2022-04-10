@@ -13,9 +13,7 @@ void initcrapfs() {
 	// This will set all of the "exist" fields in the files to 0, to not mark 
 	// as the end of the filesystem, but rather a file that's deleted or absent. 
 }
-void defrag_entries() {
-		// TODO: defragment file entries
-}
+
 void createfile(const char* name, const char* content) {
 	strcpy(crapfile[entry].filename, name); // Set the name of the file.
 	crapfile[entry].exists = 1; // Declare that this file exists.
@@ -33,6 +31,7 @@ void deletefile(char *file) {
 		if((crapfile[i].exists) != 0) { 
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
 				crapfile[i].exists = 0;
+				free(&crapfile[i].fileloc);
 				break; // Close loop to avoid memory memeing. :^)
 			}
 		}
