@@ -1,11 +1,8 @@
 #include "crapfs.h" // Include the crapFS structs and data.
-
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 // Note: remove the above later when porting to a freestanding OS.
-
-
 struct crapFS crapfile[256]; // Initialize the filesystem to 256 files. (Including the blank one marking the end of the filesystem.)
 int entry = 0; // Current file entry. This is where the next new file will be put. 
 // It's expected that the FS will be defragmented to avoid memes resulting from the entry counter going too high.
@@ -16,11 +13,9 @@ void initcrapfs() {
 	// This will set all of the "exist" fields in the files to 0, to not mark 
 	// as the end of the filesystem, but rather a file that's deleted or absent. 
 }
-
 void defrag_entries() {
 		// TODO: defragment file entries
 }
-
 void createfile(const char* name, const char* content) {
 	strcpy(crapfile[entry].filename, name); // Set the name of the file.
 	crapfile[entry].exists = 1; // Declare that this file exists.
@@ -30,27 +25,22 @@ void createfile(const char* name, const char* content) {
 	// where the malloc'd file will be converted into some space on the disk.  
 	entry++; // Increment entry counter.
 }
-
 void deletefile() {
 	// TODO: Delete files.
 }
-
-char * readfile(char *file, int buffsize) {
-	char * outbuf[buffsize];
+void readfile(char *file, char *outbuf) {
 	int i = 0;
 	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
 		if((crapfile[i].exists) != 0) { 
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
+				strcpy((char *)outbuf, crapfile[i].fileloc); // Copy file contents to output buffer.
 				strcpy((char *)outbuf, (char *)crapfile[i].fileloc); // Copy file contents to output buffer.
-				//break; // Close loop to avoid memory memeing. :^)
-				return outbuf;
+				break; // Close loop to avoid memory memeing. :^)
 			}
 		}
 		else {i++;}
 	}
-	return 0;
 }
-
 void listfiles() {
 	int i = 0;
 	while((crapfile[i].null) == 0) { 
@@ -76,7 +66,8 @@ int main(void) {
 	createfile("hello.wld", "I've lost ideas for what to put in these files.");
 	listfiles();
 	printf("\n");
-//	char *buff[256];
-	printf(readfile("text.txt", 128));
+	char *buff[256];
+	readfile("test.txt",(char*)buff);
+	printf((char *)buff);
 	return 0;
 }
