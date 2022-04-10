@@ -35,8 +35,8 @@ void deletefile() {
 	// TODO: Delete files.
 }
 
-char* readfile(char *file, int buffsize) {
-	char *outbuf[buffsize];
+char * readfile(char *file, int buffsize) {
+	char * outbuf[buffsize];
 	int i = 0;
 	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
 		if((crapfile[i].exists) != 0) { 
