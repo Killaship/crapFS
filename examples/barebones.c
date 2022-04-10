@@ -19,8 +19,8 @@ void defrag_entries() {
 void createfile(const char* name, const char* content) {
 	strcpy(crapfile[entry].filename, name); // Set the name of the file.
 	crapfile[entry].exists = 1; // Declare that this file exists.
-	crapfile[entry].filesize = (&content)[1] - content;
-	crapfile[entry].fileloc = (long*)(malloc(crapfile[entry].filesize)) + 1;
+	crapfile[entry].filesize = strlen(content);
+	crapfile[entry].fileloc = malloc(crapfile[entry].filesize);
 	// Use malloc, as the files should be in memory until you somehow flush the FS to a disk,
 	// where the malloc'd file will be converted into some space on the disk.  
 	entry++; // Increment entry counter.
@@ -33,7 +33,7 @@ void readfile(char *file, char *outbuf) {
 	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
 		if((crapfile[i].exists) != 0) { 
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
-				strcpy((char *)outbuf, (char *)crapfile[i].fileloc); // Copy file contents to output buffer.
+				strcpy((char *)outbuf, *crapfile[i].fileloc); // Copy file contents to output buffer.
 				break; // Close loop to avoid memory memeing. :^)
 			}
 		}
@@ -67,6 +67,6 @@ int main(void) {
 	printf("\n");
 	char *buff[256];
 	readfile("test.txt",buff);
-	printf(buff);
+	printf(buff); 
 	return 0;
 }
