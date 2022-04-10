@@ -28,7 +28,7 @@ void createfile(const char* name, const char* content) {
 void deletefile() {
 	// TODO: Delete files.
 }
-void readfile(char *file, char *outbuf) {
+void readfile(char *file, char outbuf) {
 	int i = 0;
 	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
 		if((crapfile[i].exists) != 0) { 
@@ -65,7 +65,7 @@ int main(void) {
 	createfile("hello.wld", "I've lost ideas for what to put in these files.");
 	listfiles();
 	printf("\n");
-	char *buff[256];
+	char buff[256];
 	readfile("test.txt",buff);
 	printf(buff); 
 	return 0;
