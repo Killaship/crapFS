@@ -73,14 +73,13 @@ int main(void) {
 	printf("\n");
 	initcrapfs();
 	createfile("test.txt", "hello world\n");
-	listfiles();
-	deletefile("test.txt");
+	//listfiles();
+	//deletefile("test.txt");
 	createfile("guide.hlp", "insert guide to filesystem here");
 	createfile("hello.wld", "I've lost ideas for what to put in these files.");
 	listfiles();
-	createfile("test.txt", "a\n");
-	printf("\n");
-	listfiles();
+	//createfile("test.txt", "a\n");
+	//listfiles();
 	char *buff[256];
 	readfile("test.txt",(char *)buff);
 	printf("%s",(char *)buff); 
