@@ -35,7 +35,7 @@ void deletefile() {
 	// TODO: Delete files.
 }
 
-void readfile(char *file, char *outbuf) {
+void readfile(char *file, char **outbuf) {
 	int i = 0;
 	while((crapfile[i].null) == 0) { 
 		if((crapfile[i].exists) != 0) {
@@ -73,7 +73,7 @@ int main(void) {
 	listfiles();
 	printf("\n");
 	char *buff[256];
-	readfile("test.txt", *buff);
+	readfile("test.txt", (char*) buff);
 	printf((char *)buff);
 	return 0;
 }
