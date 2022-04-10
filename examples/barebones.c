@@ -29,7 +29,7 @@ void deletefile(char *file) {
 	// TODO: Delete files.
 	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
 		if((crapfile[i].exists) != 0) { 
-			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
+			if(strcmp((char*)crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
 				crapfile[i].exists = 0;
 				crapfile[i].fileloc = 0;
 				strcpy(crapfile[i].filename, "");
