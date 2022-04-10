@@ -35,13 +35,15 @@ void deletefile() {
 	// TODO: Delete files.
 }
 
-void readfile(char *file, char *outbuf) {
+char* readfile(char *file, int buffsize) {
+	char *outbuf[buffsize];
 	int i = 0;
 	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
 		if((crapfile[i].exists) != 0) { 
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
 				strcpy((char *)outbuf, (char *)crapfile[i].fileloc); // Copy file contents to output buffer.
-				break; // Close loop to avoid memory memeing. :^)
+				//break; // Close loop to avoid memory memeing. :^)
+				return outbuf;
 			}
 		}
 		else {i++;}
@@ -74,7 +76,6 @@ int main(void) {
 	listfiles();
 	printf("\n");
 	char *buff[256];
-	readfile("test.txt",(char*)buff);
-	printf((char *)buff);
+	printf(readfile("text.txt", 128));
 	return 0;
 }
