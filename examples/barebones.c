@@ -33,7 +33,7 @@ void readfile(char *file, char outbuf) {
 	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
 		if((crapfile[i].exists) != 0) { 
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
-				strcpy(outbuf,(char *) crapfile[i].fileloc); // Copy file contents to output buffer.
+				strcpy((char *)outbuf,(char *) crapfile[i].fileloc); // Copy file contents to output buffer.
 				break; // Close loop to avoid memory memeing. :^)
 			}
 		}
@@ -65,7 +65,7 @@ int main(void) {
 	createfile("hello.wld", "I've lost ideas for what to put in these files.");
 	listfiles();
 	printf("\n");
-	char buff[256];
+	char *buff[256];
 	readfile("test.txt",buff);
 	printf(buff); 
 	return 0;
