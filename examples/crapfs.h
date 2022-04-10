@@ -5,7 +5,7 @@ struct crapFS {
   char filename[12]; // 8.3 filename, including a null char.
   int null; // if null is marked as one, then this will be treated as the end of the filesystem.
   int exists; // If this is non-zero, then the file exists, but otherwise, it doesn't exist. This is different from the null member of the struct.
-  long* fileloc; // pointer to file location.
+  char* fileloc; // pointer to file location.
   int filesize; // file size, implementation must round to nearest 512 bytes or memes might occur.
   char perms; // file permissions, see documentation "mega-comment" lower down.
 }; 
