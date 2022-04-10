@@ -41,6 +41,7 @@ void readfile(char *file, char **outbuf) {
 		if((crapfile[i].exists) != 0) {
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) {
 				strcpy((char *)outbuf, (char *)file);
+				break;
 			}
 		}
 		else {i++;}
