@@ -26,8 +26,16 @@ void createfile(const char* name, const char* content) {
 	// where the malloc'd file will be converted into some space on the disk.  
 	entry++; // Increment entry counter.
 }
-void deletefile() {
+void deletefile(char *file) {
+	int i = 0;
 	// TODO: Delete files.
+	while((crapfile[i].null) == 0) {  // Loop through FS entries, check if they exist, normal stuff.
+		if((crapfile[i].exists) != 0) { 
+			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
+				crapfile[i].exists = 0;
+				break; // Close loop to avoid memory memeing. :^)
+			}
+		}
 }
 void readfile(char *file, char *outbuf) {
 	int i = 0;
