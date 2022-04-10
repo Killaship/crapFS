@@ -67,6 +67,6 @@ int main(void) {
 	printf("\n");
 	char *buff[256];
 	readfile("test.txt",(char *)buff);
-	printf("%s"(char *)buff); 
+	printf("%s",(char *)buff); 
 	return 0;
 }
