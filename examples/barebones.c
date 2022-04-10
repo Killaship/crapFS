@@ -48,6 +48,7 @@ char* readfile(char *file, int buffsize) {
 		}
 		else {i++;}
 	}
+	return 0;
 }
 
 void listfiles() {
