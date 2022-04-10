@@ -32,7 +32,7 @@ void deletefile(char *file) {
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
 				crapfile[i].exists = 0;
 				crapfile[i].fileloc = 0;
-				crapfile[i].filename = 0;
+				strcpy(crapfile[i].filename, "");
 				crapfile[i].filesize = 0;
 				//free(crapfile[i].fileloc);
 				break; // Close loop to avoid memory memeing. :^)
