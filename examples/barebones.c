@@ -31,7 +31,10 @@ void deletefile(char *file) {
 		if((crapfile[i].exists) != 0) { 
 			if(strcmp(crapfile[i].filename, (char *)file) == 0) { // Check if filename of entry is what's requested.
 				crapfile[i].exists = 0;
-				free(crapfile[i].fileloc);
+				crapfile[i].fileloc = 0;
+				crapfile[i].filename = 0;
+				crapfile[i].filesize = 0;
+				//free(crapfile[i].fileloc);
 				break; // Close loop to avoid memory memeing. :^)
 			}
 		}
