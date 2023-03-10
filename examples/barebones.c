@@ -84,6 +84,6 @@ int main(void) {
 	listfiles();
 	char *buff[256];
 	readfile("test.txt",(char *)buff);
-	printf("%s",(char *)buff); 
+	printf("%s",buff); 
 	return 0;
 }
